@@ -6,7 +6,7 @@ import SimpleAppBar from './header/SimpleAppBar';
 
 const theme = createMuiTheme({
     palette:{
-        primary: pink
+        primary: blue
     },
     typography:{
         useNextVariants: true
@@ -18,7 +18,6 @@ function App(){
         <GlobalState>
         <MuiThemeProvider theme={theme}>
             <SimpleAppBar />
-            App Here
         </MuiThemeProvider>
         </GlobalState>
     )
