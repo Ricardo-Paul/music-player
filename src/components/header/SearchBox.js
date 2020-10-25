@@ -1,16 +1,12 @@
 import React from 'react';
 
-import { Divider, IconButton, InputBase } from '@material-ui/core';
+import { Popper, IconButton, InputBase } from '@material-ui/core';
 import { ArrowBack } from '@material-ui/icons';
 import { withStyles } from '@material-ui/core/styles';
 import { SearchBoxContext } from '../GlobalState';
 import SuggestSearch from '../apis/SuggestSearch';
 import YoutubeSearch from '../apis/YoutubeSearch';
-
-// suggestionResult
-import { List, ListItem, ListItemIcon, ListItemText, Popper } from '@material-ui/core'
-import { Search } from '@material-ui/icons';
-
+import SuggestionResult from './suggestionResult';
 
 const styles = {
     arrow: {
@@ -41,7 +37,6 @@ const styles = {
         const typedValue = e.target.value;
         setState({...state, searchQuery: typedValue})
         getSuggestions(typedValue)
-        console.log(suggestionResults)
     }
 
     return(
@@ -65,15 +60,10 @@ const styles = {
             />
         </form>
 
-        <Popper style={{ width: "100&" }} open={true} placement="bottom" anchorEl={document.getElementById("root")}>
-        <List style={{ width: "100%"}}>
-            <ListItem>
-                <ListItemIcon>
-                   <Search />
-                </ListItemIcon>
-                <ListItemText primary="Eminem" />
-            </ListItem>
-        </List>
+        <Popper style={{ width: "100%" }} 
+            open={true} placement="bottom" 
+            anchorEl={document.getElementById("root")}>
+            <SuggestionResult suggestionResults={suggestionResults} />
         </Popper>
         </>
     )
