@@ -33,11 +33,19 @@ const styles = {
         return searchResult.data;
     }
 
+     const onSelection = result => {
+         alert(result)
+     }
+
      const onType = async (e) => {
         const typedValue = e.target.value;
         setState({...state, searchQuery: typedValue})
         getSuggestions(typedValue)
+
+        console.log('results', suggestionResults)
     }
+
+    let dummyData = ['eminem', '50 Cent', 'Tucker Carlson']
 
     return(
         <> 
@@ -63,7 +71,10 @@ const styles = {
         <Popper style={{ width: "100%" }} 
             open={true} placement="bottom" 
             anchorEl={document.getElementById("root")}>
-            <SuggestionResult suggestionResults={suggestionResults} />
+            <SuggestionResult 
+            suggestionResults={suggestionResults}
+            onSelection={onSelection}
+             />
         </Popper>
         </>
     )
