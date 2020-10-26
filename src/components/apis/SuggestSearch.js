@@ -16,8 +16,11 @@ const ORIGIN = process.env.REACT_APP_ORIGIN
 export default axios.create({
     baseURL: `${ORIGIN}/https://suggestqueries.google.com/complete/search?`,
     params:{
-        client: 'firefox', //response style (youtube style response is jsonp)
+        client: 'firefox',
         ds: 'yt', //restricted to a particular domain
         hl: 'en', //language
     }
 });
+
+// firefox as client will
+// return response as json

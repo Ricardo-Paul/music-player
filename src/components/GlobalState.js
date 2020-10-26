@@ -14,3 +14,6 @@ export const GlobalState = props => {
     )
 }
 
+// SearchBoxContext Provider Value
+// GlobalState is the actual function
+// that serves a wrapper
